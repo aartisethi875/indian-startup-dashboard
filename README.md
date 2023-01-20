@@ -26,8 +26,6 @@ This project is a dashboard analysis for Indian startups using Streamlit. It all
 3. The charts and tables will update with the corresponding data.
 4. Use the "Export Data" button to download the data as a CSV file.
 
-# License
-This project is licensed under the MIT License.
 
 # Authors
 - [Aarti Sethi](https://github.com/aartisethi875)
