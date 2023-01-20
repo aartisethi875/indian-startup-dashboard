@@ -13,3 +13,7 @@ This project is a dashboard analysis for Indian startups using Streamlit. It all
 - Pandas
 
 
+## Installation
+1. Clone the repository
+ https://github.com/aartisethi875/Indian-Startup-Dashboard.git
+
