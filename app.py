@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+
 st.set_page_config(layout='wide', page_title='Startup Analysis')
 df = pd.read_csv('startup_cleaned.csv')
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
