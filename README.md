@@ -12,5 +12,4 @@ This project is a dashboard analysis for Indian startups using Streamlit. It all
 - Streamlit
 - Pandas
 
-## Installation
-1. Clone the repository
+
