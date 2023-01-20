@@ -16,4 +16,27 @@ This project is a dashboard analysis for Indian startups using Streamlit. It all
 ## Installation
 1. Clone the repository
  https://github.com/aartisethi875/Indian-Startup-Dashboard.git
+2. Install the dependencies
+3. Run the app
 
+
+# Usage
+1. The dashboard will be automatically opened in your web browser.
+2. Use the dropdown menu to select the industry and location for the startups you want to analyze.
+3. The charts and tables will update with the corresponding data.
+4. Use the "Export Data" button to download the data as a CSV file.
+
+# License
+This project is licensed under the MIT License.
+
+# Authors
+- [Aarti Sethi](https://github.com/aartisethi875)
+
+# Acknowledgements
+- [Streamlit](https://streamlit.io/)
+- [Pandas](https://pandas.pydata.org/)
+
+# Future Work
+- Adding more data visualization options
+- Implementing Machine Learning models for predictions
+- Incorporating more startup data from various sources
