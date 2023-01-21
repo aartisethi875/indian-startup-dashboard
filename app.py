@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -33,7 +34,7 @@ def load_overall_analysis():
     with col4:
         st.metric('Funded Startups', num_startups)
 
-    col1, col2 ,col3= st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         st.header('MoM graph')
         selected_option = st.selectbox('Select Type', ['Total', 'count'])
