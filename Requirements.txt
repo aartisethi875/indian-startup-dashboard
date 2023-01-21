@@ -1,6 +1,5 @@
 pandas~=1.4.3
 plotly
 streamlit~=1.16.0
-matplotlib.pyplot
 seaborn~=0.12.2
 matplotlib~=3.6.2
