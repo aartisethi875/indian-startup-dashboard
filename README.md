@@ -26,6 +26,10 @@ This project is a dashboard analysis for Indian startups using Streamlit. It all
 3. The charts and tables will update with the corresponding data.
 4. Use the "Export Data" button to download the data as a CSV file.
 
+# Deployment
+The Indian Startup Dashboard is deployed on https://aartisethi875-indian-startup-dashboard-app-v24z4j.streamlit.app/
+
+
 
 # Authors
 - [Aarti Sethi](https://github.com/aartisethi875)
