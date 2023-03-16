@@ -4,12 +4,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-
 st.set_page_config(layout='wide', page_title='Startup Analysis')
-df = pd.read_csv('startup_cleaned.csv')
+df = pd.read_csv('startup_data')
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
 df['month'] = df['date'].dt.month
 df['year'] = df['date'].dt.year
+
+
+colors = ["#E78CAE", "#926580", "#926580", "#707EA0", "#34495E"]
+custom_palette = sns.color_palette(colors)
 
 
 def load_overall_analysis():
@@ -45,8 +48,16 @@ def load_overall_analysis():
 
         temp_df['x_axis'] = temp_df['month'].astype('str') + '_' + temp_df['year'].astype('str')
 
-        fig5, ax5 = plt.subplots()
-        ax5.plot(temp_df['x_axis'], temp_df['amount'])
+        # Create plot
+        fig5, ax = plt.subplots()
+        ax.plot(temp_df['x_axis'], temp_df['amount'])
+
+        # Set plot labels and title
+        ax.set_xlabel('Month-Year')
+        ax.set_ylabel('Total Amount' if selected_option == 'Total' else 'Transaction Count')
+        ax.set_title('Month-on-Month Analysis')
+
+        # Display plot in Streamlit
         st.pyplot(fig5)
 
     with col2:
@@ -61,7 +72,7 @@ def load_overall_analysis():
         ax7.pie(tmp_df, labels=tmp_df.index, autopct="%0.01f%%")
         st.pyplot(fig7)
 
-    col1, col2,  = st.columns(2)
+    col1, col2, = st.columns(2)
     with col1:
         st.header('Type of funding')
         funding_series = df.groupby('round')['round'].count().sort_values(ascending=False).head()
@@ -79,7 +90,7 @@ def load_overall_analysis():
         plt.ylabel("Number of funding", fontsize=14)
         st.pyplot(fig)
 
-    col1,col2,col3 = st.columns(3)
+    col1, col2, = st.columns(2)
 
     with col1:
         st.header('Top startups')
@@ -97,15 +108,14 @@ def load_overall_analysis():
         ax.bar(overall_series.index, overall_series.values)
         st.pyplot(fig)
 
-    with col3:
-        st.header('Funding Heatmap')
-        table = pd.crosstab(df['year'], df['round'], values=df['amount'], aggfunc='sum')
-        fig, ax = plt.subplots(figsize=(10, 8))
-        sns.heatmap(table, cmap='YlGnBu', vmin=0, vmax=1, annot_kws={"size": 14},
-                    ax=ax)
-        ax.set_xlabel("Year", fontsize=14)
-        ax.set_ylabel("Funding Amount", fontsize=14)
-        st.pyplot(fig)
+    st.header('Funding Heatmap')
+    table = pd.crosstab(df['year'], df['round'], values=df['amount'], aggfunc='sum')
+    fig, ax = plt.subplots(figsize=(20,5))
+    sns.heatmap(table,  cmap=custom_palette, vmin=0, vmax=1, annot_kws={"size": 14},
+                ax=ax)
+    ax.set_xlabel("Year", fontsize=14)
+    ax.set_ylabel("Funding Amount", fontsize=14)
+    st.pyplot(fig)
 
 
 def load_investor_details(investor):
